@@ -17,12 +17,15 @@
     ],
     "require": {
         "php": "^7.4",
-        "illuminate/mail": "^6.0 || ^7.0",
-        "illuminate/view": "^6.0 || ^7.0"
+        "illuminate/support": "^6.0 || ^7.0"
     },
     "require-dev": {
+        "moneyphp/money": "^3.3",
         "orchestra/testbench": "^4.0 || ^5.0",
         "phpunit/phpunit": "^8.5"
+    },
+    "suggest": {
+        "moneyphp/money": "Represent money"
     },
     "autoload": {
         "psr-4": {

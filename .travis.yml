@@ -23,6 +23,8 @@ before_install:
 
 install:
   - travis_retry composer update ${COMPOSER_FLAGS} --prefer-dist --no-interaction --no-suggest
+  - sudo apt-get -qq update
+  - sudo apt-get install -y --allow-unauthenticated ghostscript
 
 script:
   - vendor/bin/phpunit

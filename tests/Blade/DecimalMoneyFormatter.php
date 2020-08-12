@@ -14,7 +14,7 @@ class DecimalMoneyFormatterTest extends TestCase
     {
         parent::setUp();
 
-        $this->setViewPath(__DIR__ . '/money');
+        $this->setViewPath(__DIR__ . '/templates');
 
         DecimalMoneyFormatter::directive();
     }

@@ -22,10 +22,12 @@
     "require-dev": {
         "moneyphp/money": "^3.3",
         "orchestra/testbench": "^4.0 || ^5.0",
-        "phpunit/phpunit": "^8.5"
+        "phpunit/phpunit": "^8.5",
+        "symfony/process": "^5.1"
     },
     "suggest": {
-        "moneyphp/money": "Represent money"
+        "moneyphp/money": "Blade directives to represent money",
+        "symfony/process": "To run Ghostscript"
     },
     "autoload": {
         "psr-4": {

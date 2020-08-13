@@ -13,7 +13,7 @@ class DecimalMoneyFormatter
 
     public static function handler(int $cents, string $code)
     {
-        $formatter = new  BaseFormatter(new ISOCurrencies);
+        $formatter = new BaseFormatter(new ISOCurrencies);
 
         $money = Money::$code($cents);
 

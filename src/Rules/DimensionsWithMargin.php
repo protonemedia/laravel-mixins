@@ -7,18 +7,22 @@ use Illuminate\Support\Collection;
 use Illuminate\Validation\Concerns\ValidatesAttributes;
 use Illuminate\Validation\Rules\Dimensions as RulesDimensions;
 
-class RelaxedDimensions extends RulesDimensions implements Rule
+class DimensionsWithMargin extends RulesDimensions implements Rule
 {
-    use ValidatesAttributes;
+    use ValidatesAttributes {
+        failsRatioCheck as failsRatioCheckTrait;
+    }
 
     public static function make(array $constraints = []): self
     {
         return new static($constraints);
     }
 
-    public function factor($factor)
+    public function margin($margin)
     {
-        $this->constraints['factor'] = $factor;
+        if ($margin > 0) {
+            $this->constraints['margin'] = $margin;
+        }
 
         return $this;
     }
@@ -34,20 +38,27 @@ class RelaxedDimensions extends RulesDimensions implements Rule
 
     protected function failsRatioCheck($parameters, $width, $height)
     {
-        if (! isset($parameters['ratio'])) {
+        if (!isset($parameters['ratio'])) {
             return false;
         }
 
-        $parameters['factor'] = $parameters['factor'] ?? 1;
+        if (isset($parameters['margin'])) {
+            $range = range($parameters['margin'] * -1, $parameters['margin']);
 
-        [$numerator, $denominator] = array_replace(
-            [1, 1],
-            array_filter(sscanf($parameters['ratio'], '%f/%d'))
-        );
+            foreach ($range as $margin) {
+                if (!$this->failsRatioCheckTrait($parameters, $width + $margin, $height)) {
+                    return false;
+                }
 
-        $precision = (1 / max($width, $height)) * $parameters['factor'];
+                if (!$this->failsRatioCheckTrait($parameters, $width, $height + $margin)) {
+                    return false;
+                }
+            }
 
-        return abs($numerator / $denominator - $width / $height) > $precision;
+            return true;
+        }
+
+        return $this->failsRatioCheckTrait($parameters, $width, $height);
     }
 
     /**

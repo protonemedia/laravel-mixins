@@ -2,11 +2,27 @@
 
 namespace ProtoneMedia\LaravelMixins\Rules;
 
-use Illuminate\Contracts\Validation\Factory;
 use Illuminate\Contracts\Validation\Rule;
 
-class UrlWithoutScheme implements Rule
+class MaxWords implements Rule
 {
+    private int $max;
+
+    /**
+     * Create a new rule instance.
+     *
+     * @return void
+     */
+    public function __construct(int $max)
+    {
+        $this->max = $max;
+    }
+
+    public static function make(int $max): self
+    {
+        return new static($max);
+    }
+
     /**
      * Determine if the validation rule passes.
      *
@@ -16,13 +32,7 @@ class UrlWithoutScheme implements Rule
      */
     public function passes($attribute, $value)
     {
-        $scheme = parse_url($value, PHP_URL_SCHEME);
-
-        if (!$scheme) {
-            $value = "https://{$value}";
-        }
-
-        return app(Factory::class)->make([], [])->validateUrl($attribute, $value);
+        return count(array_filter(explode(' ', $value))) <= $this->max;
     }
 
     /**
@@ -32,6 +42,6 @@ class UrlWithoutScheme implements Rule
      */
     public function message()
     {
-        return __('validation.url');
+        return __('validation.max_words');
     }
 }

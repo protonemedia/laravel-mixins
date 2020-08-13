@@ -6,7 +6,7 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
-trait ConvertsBase64ImagesToFiles
+trait ConvertsBase64ToFiles
 {
     protected function base64ImageKeys(): array
     {

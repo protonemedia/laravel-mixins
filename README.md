@@ -1,8 +1,9 @@
-# Laravel Mixins
+# [WIP] Laravel Mixins
+## Do not use in production yet!
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/protonemedia/laravel-mixins.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-mixins)
-[![Build Status](https://img.shields.io/travis/pascalbaljetmedia/laravel-mixins/master.svg?style=flat-square)](https://travis-ci.org/pascalbaljetmedia/laravel-mixins)
-[![Quality Score](https://img.shields.io/scrutinizer/g/pascalbaljetmedia/laravel-mixins.svg?style=flat-square)](https://scrutinizer-ci.com/g/pascalbaljetmedia/laravel-mixins)
+[![Build Status](https://img.shields.io/travis/protonemedia/laravel-mixins/master.svg?style=flat-square)](https://travis-ci.org/protonemedia/laravel-mixins)
+[![Quality Score](https://img.shields.io/scrutinizer/g/protonemedia/laravel-mixins.svg?style=flat-square)](https://scrutinizer-ci.com/g/protonemedia/laravel-mixins)
 [![Total Downloads](https://img.shields.io/packagist/dt/protonemedia/laravel-mixins.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-mixins)
 
 ## Installation
@@ -224,7 +225,7 @@ If you discover any security related issues, please email pascal@protone.media i
 
 ## Credits
 
-- [Pascal Baljet](https://github.com/pascalbaljetmedia)
+- [Pascal Baljet](https://github.com/protonemedia)
 - [All Contributors](../../contributors)
 
 ## License

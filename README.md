@@ -19,6 +19,20 @@ composer require protonemedia/laravel-mixins
 
 #### Decimal Money Formatter
 
+This directive requires the `moneyphp/money` package.
+
+Add to your `AppSerivceProvider`:
+
+```php
+DecimalMoneyFormatter::directive();
+```
+
+You can customize the name of the directive and the default currency code:
+
+```php
+DecimalMoneyFormatter::directive('decimals', 'EUR');
+```
+
 ```blade
 // 0.99
 @decimals(99)
@@ -31,6 +45,20 @@ composer require protonemedia/laravel-mixins
 ```
 
 #### Intl Money Formatter
+
+This directive requires the `moneyphp/money` package.
+
+Add to your `AppSerivceProvider`:
+
+```php
+IntlMoneyFormatter::directive();
+```
+
+You can customize the name of the directive, the default currency code and the locale:
+
+```php
+IntlMoneyFormatter::directive('money', 'EUR', 'nl_NL');
+```
 
 ```blade
 // € 0,99
@@ -90,9 +118,13 @@ $rule = new UrlWithoutScheme;
 
 ### String macros
 
+You can add new method by using the mixins.
+
 #### Compact
 
 ```php
+Str::mixin(new Compact);
+
 $string = "Hoe simpeler hoe beter. Want hoe minder keuze je een speler laat, hoe groter de kans dat hij het juiste doet.";
 
 // Hoe simpeler hoe beter. Want hoe ... de kans dat hij het juiste doet.
@@ -102,6 +134,8 @@ echo Str::compact($string);
 #### Human Filesize
 
 ```php
+Str::mixin(new HumanFilesize);
+
 $size = 3456789;
 
 // '3.3 MB'
@@ -111,14 +145,17 @@ Str::humanFilesize($size));
 #### URL
 
 ```php
+Str::mixin(new Url);
+
 $url = "protone.media";
 
 // https://protone.media
 Str::url($url);
 ```
 
-
 ### PDF Regeneration
+
+Requires the `symfony/process` package.
 
 Regenerates the PDF content with Ghostscript.
 
@@ -166,7 +203,6 @@ $jpgFile = $request->file('jpg_image');
 // Logo.jpg
 $jpgFile->getClientOriginalName();
 ```
-
 
 ### Testing
 

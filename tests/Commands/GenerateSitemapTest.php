@@ -13,9 +13,7 @@ class GenerateSitemapTest extends TestCase
     /** @test */
     public function it_stores_the_sitemap_at_the_public_path()
     {
-        $command = new GenerateSitemap(
-            $generator = Mockery::mock(SitemapGenerator::class)
-        );
+        $generator = Mockery::mock(SitemapGenerator::class);
 
         $generator->shouldReceive('setUrl')
             ->with('http://localhost')
@@ -25,7 +23,7 @@ class GenerateSitemapTest extends TestCase
             ->with(public_path('sitemap.xml'))
             ->andReturnSelf();
 
-        $command->handle();
+        (new GenerateSitemap)->handle($generator);
     }
 
     /** @test */

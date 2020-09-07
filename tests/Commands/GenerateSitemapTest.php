@@ -2,6 +2,7 @@
 
 namespace Protonemedia\Mixins\Tests\Commands;
 
+use Mockery;
 use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelMixins\Commands\GenerateSitemap;
 use Spatie\Sitemap\SitemapGenerator;
@@ -12,7 +13,7 @@ class GenerateSitemapTest extends TestCase
     public function it_stores_the_sitemap_at_the_public_path()
     {
         $command = new GenerateSitemap(
-            $generator = $this->mock(SitemapGenerator::class)
+            $generator = Mockery::mock(SitemapGenerator::class)
         );
 
         $generator->shouldReceive('setUrl')

@@ -10,7 +10,6 @@ addons:
     packages:
       - ghostscript
 
-
 matrix:
   include:
     - php: 7.4

@@ -16,30 +16,30 @@ composer require protonemedia/laravel-mixins
 
 ## Contents
 
-Blade Directives
+#### Blade Directives
 * [Decimal Money Formatter](#decimal-money-formatter)
 * [Intl Money Formatter](#intl-money-formatter)
 
-Console Commands
+#### Console Commands
 * [Generate Sitemap](#generate-sitemap)
 
-Validation Rules
+#### Validation Rules
 * [Current password](#current-password)
 * [Dimensions With Margin](#dimensions-with-margin)
 * [Host](#host)
 * [Max Words](#max-words)
 * [URL Without Scheme](#url-without-scheme)
 
-String Macros
+#### String Macros
 * [Compact](#compact)
 * [Human Filesize](#human-filesize)
 * [Text](#text)
 * [URL](#url)
 
-PDF
+#### PDF
 * [PDF Regeneration](#pdf-regeneration)
 
-Request
+#### Request
 * [Convert Base64 input data to files](#convert-base64-input-data-to-files)
 
 ## Blade Directives

@@ -14,11 +14,37 @@ You can install the package via composer:
 composer require protonemedia/laravel-mixins
 ```
 
-## Usage
+## Contents
 
-### Blade Directives
+Blade Directives
+* [#decimal-money-formatter] Decimal Money Formatter
+* [#intl-money-formatter] Intl Money Formatter
 
-#### Decimal Money Formatter
+Console Commands
+* [#generate-sitemap] Generate Sitemap
+
+Validation Rules
+* [#current-password] Current password
+* [#dimensions-with-margin] Dimensions With Margin
+* [#host] Host
+* [#max-words] Max Words
+* [#url-without-scheme] URL Without Scheme
+
+String Macros
+* [#compact] Compact
+* [#human-filesize] Human Filesize
+* [#text] Text
+* [#url] URL
+
+PDF
+* [#pdf-regeneration] PDF Regeneration
+
+Request
+* [#convert-base64-input-data-to-files] Convert Base64 input data to files
+
+## Blade Directives
+
+### Decimal Money Formatter
 
 This directive requires the `moneyphp/money` package.
 
@@ -45,7 +71,7 @@ DecimalMoneyFormatter::directive('decimals', 'EUR');
 @decimals(100, 'XTS')
 ```
 
-#### Intl Money Formatter
+### Intl Money Formatter
 
 This directive requires the `moneyphp/money` package.
 
@@ -75,9 +101,9 @@ IntlMoneyFormatter::directive('money', 'EUR', 'nl_NL');
 @money(100, 'USD', 'fr')
 ```
 
-### Commands
+## Commands
 
-#### Generate Sitemap
+### Generate Sitemap
 
 This command requires the `spatie/laravel-sitemap` package.
 
@@ -87,9 +113,9 @@ Generates a sitemap of your entire site and stores in in the `public` folder as 
 php artisan sitemap:generate
 ```
 
-### Validation Rules
+## Validation Rules
 
-#### Current password
+### Current password
 
 Passes if the value matches the password of the authenticated user.
 
@@ -97,7 +123,7 @@ Passes if the value matches the password of the authenticated user.
 $rule = new CurrentPassword;
 ```
 
-#### Dimensions With Margin
+### Dimensions With Margin
 
 Extension of the [Dimensions rule](https://laravel.com/docs/master/validation#rule-dimensions) with a `margin` option. Handy when you're working with ratios with repeating decimals.
 
@@ -105,7 +131,7 @@ Extension of the [Dimensions rule](https://laravel.com/docs/master/validation#ru
 $rule = DimensionsWithMargin::make()->ratio(20 / 9)->margin(1),
 ```
 
-#### Host
+### Host
 
 Verifies if the URL matches the given hosts.
 
@@ -113,7 +139,7 @@ Verifies if the URL matches the given hosts.
 $rule = Host::make(['facebook.com', 'fb.me']);
 ```
 
-#### Max Words
+### Max Words
 
 Passes if the values contains no more words than specified.
 
@@ -121,7 +147,7 @@ Passes if the values contains no more words than specified.
 $rule = MaxWords::make(250);
 ```
 
-#### URL Without Scheme
+### URL Without Scheme
 
 Passes if the URL is valid, even without a scheme.
 
@@ -129,11 +155,11 @@ Passes if the URL is valid, even without a scheme.
 $rule = new UrlWithoutScheme;
 ```
 
-### String macros
+## String macros
 
 You can add new method by using the mixins.
 
-#### Compact
+### Compact
 
 ```php
 Str::mixin(new Compact);
@@ -144,7 +170,7 @@ $string = "Hoe simpeler hoe beter. Want hoe minder keuze je een speler laat, hoe
 echo Str::compact($string);
 ```
 
-#### Human Filesize
+### Human Filesize
 
 ```php
 Str::mixin(new HumanFilesize);
@@ -155,7 +181,7 @@ $size = 3456789;
 Str::humanFilesize($size));
 ```
 
-#### Text
+### Text
 
 This macro requires the `html2text/html2text` package.
 
@@ -170,7 +196,7 @@ $html = "<h1>Protone Media</h1>";
 Str::text($html);
 ```
 
-#### URL
+### URL
 
 ```php
 Str::mixin(new Url);
@@ -181,7 +207,7 @@ $url = "protone.media";
 Str::url($url);
 ```
 
-### PDF Regeneration
+## PDF Regeneration
 
 Requires the `symfony/process` package.
 
@@ -195,7 +221,7 @@ $regeneratedPdf = $ghostscript->regeneratePdf(
 );
 ```
 
-### Convert Base64 input data to files
+## Convert Base64 input data to files
 
 Add the `ConvertsBase64ToFiles` trait and `base64ImageKeys` method to your form request.
 

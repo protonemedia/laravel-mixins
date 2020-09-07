@@ -4,6 +4,13 @@ cache:
   directories:
     - $HOME/.composer/cache
 
+addons:
+  apt:
+    update: true
+    packages:
+      - ghostscript
+
+
 matrix:
   include:
     - php: 7.4

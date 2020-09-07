@@ -18,12 +18,9 @@ class GhostscriptTest extends TestCase
             file_get_contents(__DIR__ . '/dummy.pdf')
         );
 
-        $this->assertNotNull($regeneratedPdf);
-
-        var_dump($regeneratedPdf);
+        $this->assertNotEmpty($regeneratedPdf);
 
         $this->assertTrue(Str::contains($regeneratedPdf, 'PDF-1.'));
-        $this->assertTrue(Str::contains($regeneratedPdf, 'youtube.com'));
         $this->assertTrue(Str::contains($regeneratedPdf, 'Producer(GPL Ghostscript'));
     }
 }

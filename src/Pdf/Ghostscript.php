@@ -8,7 +8,7 @@ class Ghostscript implements CanRegeneratePDF
 {
     private $bin;
 
-    public function __construct(string $bin = 'gs')
+    public function __construct(string $bin = 'ghostscript')
     {
         $this->bin = $bin;
     }

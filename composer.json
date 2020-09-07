@@ -53,12 +53,5 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "extra": {
-        "laravel": {
-            "providers": [
-                "ProtoneMedia\\LaravelMixins\\MixinsServiceProvider"
-            ]
-        }
-    }
+    "prefer-stable": true
 }

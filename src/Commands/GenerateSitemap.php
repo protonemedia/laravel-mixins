@@ -3,6 +3,7 @@
 namespace ProtoneMedia\LaravelMixins\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 use Spatie\Sitemap\SitemapGenerator;
 
 class GenerateSitemap extends Command
@@ -22,18 +23,15 @@ class GenerateSitemap extends Command
     protected $description = 'Generate the sitemap.';
 
     /**
-     * Sitemap Generator
-     */
-    private SitemapGenerator $sitemapGenerator;
-
-    /**
-     * Set the Sitemap Generator
+     * Set the signature.
      *
-     * @param \Spatie\Sitemap\SitemapGenerator $sitemapGenerator
+     * @param string $signature
      */
-    public function __construct(SitemapGenerator $sitemapGenerator)
+    public function __construct(string $signature = 'sitemap:generate')
     {
-        $this->sitemapGenerator = $sitemapGenerator;
+        $this->signature = $signature;
+
+        parent::__construct();
     }
 
     /**
@@ -41,10 +39,20 @@ class GenerateSitemap extends Command
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(SitemapGenerator $sitemapGenerator)
     {
-        $this->sitemapGenerator
+        $sitemapGenerator
             ->setUrl(config('app.url'))
             ->writeToFile(public_path('sitemap.xml'));
+    }
+
+    /**
+     * Register the command.
+     *
+     * @return void
+     */
+    public static function register(string $signature = 'sitemap:generate')
+    {
+        Artisan::registerCommand(new static($signature));
     }
 }

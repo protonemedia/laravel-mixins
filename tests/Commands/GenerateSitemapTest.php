@@ -2,6 +2,7 @@
 
 namespace Protonemedia\Mixins\Tests\Commands;
 
+use Illuminate\Support\Facades\Artisan;
 use Mockery;
 use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelMixins\Commands\GenerateSitemap;
@@ -25,5 +26,21 @@ class GenerateSitemapTest extends TestCase
             ->andReturnSelf();
 
         $command->handle();
+    }
+
+    /** @test */
+    public function it_can_be_added_to_the_console()
+    {
+        GenerateSitemap::register();
+        Artisan::call('list');
+
+        $this->assertStringContainsString('sitemap:generate', Artisan::output());
+
+        //
+
+        GenerateSitemap::register('generate-sitemap');
+        Artisan::call('list');
+
+        $this->assertStringContainsString('generate-sitemap', Artisan::output());
     }
 }

@@ -25,5 +25,6 @@ class CompactTest extends TestCase
         $this->assertEquals($string, Str::compact($string, 55));
 
         $this->assertEquals('Hoe simpeler hoe beter. Want hoe ... de kans dat hij het juiste doet.', Str::compact($string, 32));
+        $this->assertEquals('Hoe simpeler hoe ... het juiste doet.', Str::compact($string, 16));
     }
 }

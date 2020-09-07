@@ -14,6 +14,8 @@ You can install the package via composer:
 composer require protonemedia/laravel-mixins
 ```
 
+To keep the overhead of this package to a minimum, every feature is opt-in. There's no Service Provider or automatic discovery/registration of anything.
+
 ## Contents
 
 #### Blade Directives
@@ -44,14 +46,16 @@ composer require protonemedia/laravel-mixins
 
 ## Blade Directives
 
+Blade Directives can be registered by calling the `directive` method on the class. You can change the name of a directive with the optional first argument.
+
 ### Decimal Money Formatter
 
-This directive requires the `moneyphp/money` package.
+*Note: This directive requires the `moneyphp/money` package.*
 
-Add to your `AppSerivceProvider`:
+Register the directive, for example by adding it to your `AppSerivceProvider`:
 
 ```php
-DecimalMoneyFormatter::directive();
+ProtoneMedia\LaravelMixins\Blade\DecimalMoneyFormatter::directive();
 ```
 
 You can customize the name of the directive and the default currency code:
@@ -73,12 +77,12 @@ DecimalMoneyFormatter::directive('decimals', 'EUR');
 
 ### Intl Money Formatter
 
-This directive requires the `moneyphp/money` package.
+*Note: This directive requires the `moneyphp/money` package.*
 
-Add to your `AppSerivceProvider`:
+Register the directive, for example by adding it to your `AppSerivceProvider`:
 
 ```php
-IntlMoneyFormatter::directive();
+ProtoneMedia\LaravelMixins\Blade\IntlMoneyFormatter::directive();
 ```
 
 You can customize the name of the directive, the default currency code and the locale:
@@ -105,9 +109,23 @@ IntlMoneyFormatter::directive('money', 'EUR', 'nl_NL');
 
 ### Generate Sitemap
 
-This command requires the `spatie/laravel-sitemap` package.
+*Note: This command requires the `spatie/laravel-sitemap` package.*
 
-Generates a sitemap of your entire site and stores in in the `public` folder as `sitemap.xml`.
+You can register the command by adding it to your `App\Console\Kernel` file, or by calling the `register` method on the class.
+
+```php
+use ProtoneMedia\LaravelMixins\Commands\GenerateSitemap;
+
+GenerateSitemap::register();
+```
+
+You can also set a custom signature:
+
+```php
+GenerateSitemap::register('generate-sitemap');
+```
+
+It generates a sitemap of your entire site and stores in in the `public` folder as `sitemap.xml`.
 
 ```bash
 php artisan sitemap:generate
@@ -120,7 +138,7 @@ php artisan sitemap:generate
 Passes if the value matches the password of the authenticated user.
 
 ```php
-$rule = new CurrentPassword;
+$rule = new ProtoneMedia\LaravelMixins\Rules\CurrentPassword;
 ```
 
 ### Dimensions With Margin
@@ -128,6 +146,8 @@ $rule = new CurrentPassword;
 Extension of the [Dimensions rule](https://laravel.com/docs/master/validation#rule-dimensions) with a `margin` option. Handy when you're working with ratios with repeating decimals.
 
 ```php
+use ProtoneMedia\LaravelMixins\Rules\DimensionsWithMargin;
+
 $rule = DimensionsWithMargin::make()->ratio(20 / 9)->margin(1),
 ```
 
@@ -136,6 +156,8 @@ $rule = DimensionsWithMargin::make()->ratio(20 / 9)->margin(1),
 Verifies if the URL matches the given hosts.
 
 ```php
+use ProtoneMedia\LaravelMixins\Rules\Host;
+
 $rule = Host::make(['facebook.com', 'fb.me']);
 ```
 
@@ -144,6 +166,8 @@ $rule = Host::make(['facebook.com', 'fb.me']);
 Passes if the values contains no more words than specified.
 
 ```php
+use ProtoneMedia\LaravelMixins\Rules\MaxWords;
+
 $rule = MaxWords::make(250);
 ```
 
@@ -152,7 +176,7 @@ $rule = MaxWords::make(250);
 Passes if the URL is valid, even without a scheme.
 
 ```php
-$rule = new UrlWithoutScheme;
+$rule = new ProtoneMedia\LaravelMixins\Rules\UrlWithoutScheme;
 ```
 
 ## String macros
@@ -162,7 +186,7 @@ You can add new method by using the mixins.
 ### Compact
 
 ```php
-Str::mixin(new Compact);
+Str::mixin(new ProtoneMedia\LaravelMixins\String\Compact);
 
 $string = "Hoe simpeler hoe beter. Want hoe minder keuze je een speler laat, hoe groter de kans dat hij het juiste doet.";
 
@@ -170,10 +194,19 @@ $string = "Hoe simpeler hoe beter. Want hoe minder keuze je een speler laat, hoe
 echo Str::compact($string);
 ```
 
-### Human Filesize
+It has an optional second argument to specify the length on each side.
 
 ```php
-Str::mixin(new HumanFilesize);
+// Hoe simpeler hoe ... het juiste doet.
+echo Str::compact($string, 16);
+```
+
+### Human Filesize
+
+Converts a filesize into a human-readable version of the string.
+
+```php
+Str::mixin(new ProtoneMedia\LaravelMixins\String\HumanFilesize);
 
 $size = 3456789;
 
@@ -183,12 +216,12 @@ Str::humanFilesize($size));
 
 ### Text
 
-This macro requires the `html2text/html2text` package.
+*Note: This macro requires the `html2text/html2text` package.*
 
 Converts HTML to plain text.
 
 ```php
-Str::mixin(new Text);
+Str::mixin(new ProtoneMedia\LaravelMixins\String\Text);
 
 $html = "<h1>Protone Media</h1>";
 
@@ -198,8 +231,10 @@ Str::text($html);
 
 ### URL
 
+Prepends `https://` is the scheme is missing from the given URL.
+
 ```php
-Str::mixin(new Url);
+Str::mixin(new ProtoneMedia\LaravelMixins\String\Url);
 
 $url = "protone.media";
 
@@ -209,16 +244,22 @@ Str::url($url);
 
 ## PDF Regeneration
 
-Requires the `symfony/process` package.
+*Note: Requires the `symfony/process` package.*
 
 Regenerates the PDF content with Ghostscript.
 
 ```php
-$ghostscript = new Ghostscript;
+$ghostscript = new ProtoneMedia\LaravelMixins\Pdf\Ghostscript;
 
 $regeneratedPdf = $ghostscript->regeneratePdf(
     file_get_contents('/uploads/invoice.pdf')
 );
+```
+
+You can specify the path of the `ghostscript` binary as well:
+
+```php
+$ghostscript = new Ghostscript('gs-binary');
 ```
 
 ## Convert Base64 input data to files

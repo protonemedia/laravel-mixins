@@ -51,9 +51,13 @@ class CurrentPasswordTest extends TestCase
 
         // trigger
         $this->assertFalse($rule->passes('current_password', 'wrong'));
+
+        $throttleMessage = $rule->message();
+        preg_match('/[0-9]+/', $throttleMessage, $matches);
+
         $this->assertEquals(trans('auth.throttle', [
-            'seconds' => 60,
-            'minutes' => ceil(60 / 60),
-        ]), $rule->message());
+            'seconds' => $matches[0] ?? 60,
+            'minutes' => ceil($matches[0] ?? 60 / 60),
+        ]), $throttleMessage);
     }
 }

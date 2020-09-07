@@ -8,7 +8,7 @@ class Url
 {
     public function url()
     {
-        return function ($value = null) {
+        return function ($value = null): ?string {
             if ($value && !Str::startsWith($value, ['http://', 'https://'])) {
                 $value = 'https://' . $value;
             }

@@ -75,6 +75,18 @@ IntlMoneyFormatter::directive('money', 'EUR', 'nl_NL');
 @money(100, 'USD', 'fr')
 ```
 
+### Commands
+
+#### Generate Sitemap
+
+This command requires the `spatie/laravel-sitemap` package.
+
+Generates a sitemap of your entire site and stores in in the `public` folder as `sitemap.xml`.
+
+```bash
+php artisan sitemap:generate
+```
+
 ### Validation Rules
 
 #### Current password
@@ -141,6 +153,21 @@ $size = 3456789;
 
 // '3.3 MB'
 Str::humanFilesize($size));
+```
+
+#### Text
+
+This macro requires the `html2text/html2text` package.
+
+Converts HTML to plain text.
+
+```php
+Str::mixin(new Text);
+
+$html = "<h1>Protone Media</h1>";
+
+// Protone Media
+Str::text($html);
 ```
 
 #### URL

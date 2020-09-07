@@ -20,6 +20,7 @@
         "illuminate/support": "^6.0 || ^7.0 || ^8.0"
     },
     "require-dev": {
+        "html2text/html2text": "^4.3",
         "laravel/ui": "^1.0 || ^2.0",
         "moneyphp/money": "^3.3",
         "orchestra/testbench": "^4.0 || ^5.0 || ^6.0",
@@ -28,6 +29,7 @@
         "symfony/process": "^5.1"
     },
     "suggest": {
+        "html2text/html2text": "To convert HTML to formatted plain text",
         "moneyphp/money": "Blade directives to represent money",
         "spatie/laravel-sitemap": "To generate sitemaps",
         "symfony/process": "To run Ghostscript"

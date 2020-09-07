@@ -6,7 +6,7 @@ use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelMixins\Commands\GenerateSitemap;
 use Spatie\Sitemap\SitemapGenerator;
 
-class GenerateSitemapTests extends TestCase
+class GenerateSitemapTest extends TestCase
 {
     /** @test */
     public function it_stores_the_sitemap_at_the_public_path()

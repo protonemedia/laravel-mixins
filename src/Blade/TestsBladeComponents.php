@@ -14,7 +14,10 @@ trait TestsBladeComponents
     {
         Config::set('view.paths', Arr::wrap($path));
 
-        (new ViewServiceProvider($this->app))->registerViewFinder();
+        tap(new ViewServiceProvider($this->app), function (ViewServiceProvider $viewServiceProvider) {
+            $viewServiceProvider->registerViewFinder();
+            $viewServiceProvider->register();
+        });
     }
 
     protected function renderView(string $view, array $data = [])

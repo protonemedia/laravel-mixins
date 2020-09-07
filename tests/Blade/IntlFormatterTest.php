@@ -45,10 +45,10 @@ class IntlFormatterTest extends TestCase
         $this->assertEquals('$0.99', static::replaceNonBreakingSpace($this->renderView('intl', ['cents' => 99, 'code' => 'USD', 'locale' => 'en-US'])));
         $this->assertEquals('1,00 $', static::replaceNonBreakingSpace($this->renderView('intl', ['cents' => 100, 'code' => 'USD', 'locale' => 'de-DE'])));
         $this->assertEquals('US$ 1.000,00', static::replaceNonBreakingSpace($this->renderView('intl', ['cents' => 100 * 1000, 'code' => 'USD'])));
-        $this->assertEquals('1 000,00 $US', static::replaceNonBreakingSpace($this->renderView('intl', ['cents' => 100 * 1000, 'code' => 'USD', 'locale' => 'fr-FR'])));
+        $this->assertEquals('1.000,00 $', static::replaceNonBreakingSpace($this->renderView('intl', ['cents' => 100 * 1000, 'code' => 'USD', 'locale' => 'de-DE'])));
 
         // or set a default
-        IntlMoneyFormatter::directive('money', 'USD', 'fr-FR');
-        $this->assertEquals('1 000,00 $US', static::replaceNonBreakingSpace($this->renderView('intl', ['cents' => 100 * 1000])));
+        IntlMoneyFormatter::directive('money', 'USD', 'de-DE');
+        $this->assertEquals('1.000,00 $', static::replaceNonBreakingSpace($this->renderView('intl', ['cents' => 100 * 1000])));
     }
 }

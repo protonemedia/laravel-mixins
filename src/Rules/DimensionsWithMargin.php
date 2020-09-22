@@ -27,8 +27,8 @@ class DimensionsWithMargin extends RulesDimensions implements Rule
     /**
      * Set the "margin" constraint.
      *
-     * @param  int  $value
-     * @return $this
+     * @param integer $margin
+     * @return void
      */
     public function margin(int $margin)
     {

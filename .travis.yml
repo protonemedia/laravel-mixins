@@ -24,11 +24,6 @@ matrix:
       env: LARAVEL='8.*' TESTBENCH='6.*' COMPOSER_FLAGS='--prefer-lowest'
     - php: 7.4
       env: LARAVEL='8.*' TESTBENCH='6.*' COMPOSER_FLAGS='--prefer-stable'
-  allow_failures:
-    - php: 7.4
-      env: LARAVEL='8.*' TESTBENCH='6.*' COMPOSER_FLAGS='--prefer-lowest'
-    - php: 7.4
-      env: LARAVEL='8.*' TESTBENCH='6.*' COMPOSER_FLAGS='--prefer-stable'
   fast_finish: true
 
 before_install:

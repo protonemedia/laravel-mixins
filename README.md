@@ -1,5 +1,4 @@
-# [WIP] Laravel Mixins
-## Do not use in production yet!
+# Laravel Mixins
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/protonemedia/laravel-mixins.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-mixins)
 [![Build Status](https://img.shields.io/travis/protonemedia/laravel-mixins/master.svg?style=flat-square)](https://travis-ci.org/protonemedia/laravel-mixins)
@@ -8,7 +7,7 @@
 
 ## Installation
 
-You can install the package via composer:
+This package requires PHP 7.4 and Laravel 6.0 or higher. You can install the package via composer:
 
 ```bash
 composer require protonemedia/laravel-mixins

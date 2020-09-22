@@ -4,6 +4,7 @@
 [![Build Status](https://img.shields.io/travis/protonemedia/laravel-mixins/master.svg?style=flat-square)](https://travis-ci.org/protonemedia/laravel-mixins)
 [![Quality Score](https://img.shields.io/scrutinizer/g/protonemedia/laravel-mixins.svg?style=flat-square)](https://scrutinizer-ci.com/g/protonemedia/laravel-mixins)
 [![Total Downloads](https://img.shields.io/packagist/dt/protonemedia/laravel-mixins.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-mixins)
+[![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen)](https://plant.treeware.earth/protonemedia/laravel-mixins)
 
 ## Installation
 
@@ -326,3 +327,7 @@ If you discover any security related issues, please email pascal@protone.media i
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+## Treeware
+
+This package is [Treeware](https://treeware.earth). If you use it in production, then we ask that you [**buy the world a tree**](https://plant.treeware.earth/protonemedia/laravel-mixins) to thank us for our work. By contributing to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.

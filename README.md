@@ -13,7 +13,7 @@ This package requires PHP 7.4 and Laravel 6.0 or higher. You can install the pac
 composer require protonemedia/laravel-mixins
 ```
 
-To keep the overhead of this package to a minimum, every feature is opt-in. There's no Service Provider or automatic discovery/registration of anything.
+There's no Service Provider or automatic discovery/registration of anything. All features are opt-in.
 
 ## Contents
 
@@ -45,7 +45,7 @@ To keep the overhead of this package to a minimum, every feature is opt-in. Ther
 
 ## Blade Directives
 
-Blade Directives can be registered by calling the `directive` method on the class. You can change the name of a directive with the optional first argument.
+You can register Blade Directives by calling the `directive` method on the class. You can change the name of a directive with the optional first argument.
 
 ### Decimal Money Formatter
 
@@ -60,8 +60,10 @@ ProtoneMedia\LaravelMixins\Blade\DecimalMoneyFormatter::directive();
 You can customize the name of the directive and the default currency code:
 
 ```php
-DecimalMoneyFormatter::directive('decimals', 'EUR');
+ProtoneMedia\LaravelMixins\Blade\DecimalMoneyFormatter::directive('decimals', 'EUR');
 ```
+
+The first argument of the directive is the amount in cents. The second optional parameter is the currency.
 
 ```blade
 // 0.99
@@ -87,8 +89,10 @@ ProtoneMedia\LaravelMixins\Blade\IntlMoneyFormatter::directive();
 You can customize the name of the directive, the default currency code and the locale:
 
 ```php
-IntlMoneyFormatter::directive('money', 'EUR', 'nl_NL');
+ProtoneMedia\LaravelMixins\Blade\IntlMoneyFormatter::directive('money', 'EUR', 'nl_NL');
 ```
+
+The first argument of the directive is the amount in cents. The optional second parameter is the currency. The optional third parameter is the locale.
 
 ```blade
 // € 0,99
@@ -113,15 +117,13 @@ IntlMoneyFormatter::directive('money', 'EUR', 'nl_NL');
 You can register the command by adding it to your `App\Console\Kernel` file, or by calling the `register` method on the class.
 
 ```php
-use ProtoneMedia\LaravelMixins\Commands\GenerateSitemap;
-
-GenerateSitemap::register();
+ProtoneMedia\LaravelMixins\Commands\GenerateSitemap::register();
 ```
 
 You can also set a custom signature:
 
 ```php
-GenerateSitemap::register('generate-sitemap');
+ProtoneMedia\LaravelMixins\Commands\GenerateSitemap::register('generate-sitemap');
 ```
 
 It generates a sitemap of your entire site and stores in in the `public` folder as `sitemap.xml`.
@@ -193,11 +195,11 @@ $string = "Hoe simpeler hoe beter. Want hoe minder keuze je een speler laat, hoe
 echo Str::compact($string);
 ```
 
-It has an optional second argument to specify the length on each side.
+It has an optional second argument to specify the length on each side. With the optional third argument, you can specify the sepeator.
 
 ```php
-// Hoe simpeler hoe ... het juiste doet.
-echo Str::compact($string, 16);
+// Hoe simpeler hoe - het juiste doet.
+echo Str::compact($string, 16, ' - ');
 ```
 
 ### Human Filesize

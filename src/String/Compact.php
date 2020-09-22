@@ -14,7 +14,7 @@ class Compact
         /**
          * Takes the first and last part of the string and glues them together with the seperator.
          */
-        return function ($value, int $eachSide = 32, string $seperator = ' ... ') {
+        return function ($value, int $eachSide = 32, string $seperator = ' ... '): string {
             if (strlen($value) <= $eachSide * 2) {
                 return $value;
             }

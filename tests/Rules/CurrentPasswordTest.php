@@ -101,11 +101,18 @@ class CurrentPasswordTest extends TestCase
 
         foreach (range(1, 5) as $i) {
             $this->assertFalse($rule->passes('current_password', 'wrong'));
-            $this->assertEquals('The password is incorrect.', $rule->message());
+            $this->assertEquals(trans('validation.password'), $rule->message());
         }
 
         // trigger
         $this->assertFalse($rule->passes('current_password', 'wrong'));
-        $this->assertStringContainsString('Too many login attempts.', $rule->message());
+
+        $throttleMessage = $rule->message();
+        preg_match('/[0-9]+/', $throttleMessage, $matches);
+
+        $this->assertEquals(trans('auth.throttle', [
+            'seconds' => $matches[0] ?? 60,
+            'minutes' => ceil($matches[0] ?? 60 / 60),
+        ]), $throttleMessage);
     }
 }

@@ -16,7 +16,7 @@ class Url
         /**
          * Prepends a default scheme to the url if it's missing.
          */
-        return function ($value = null) {
+        return function ($value = null): ?string {
             if ($value && !Str::startsWith($value, ['http://', 'https://'])) {
                 $value = 'https://' . $value;
             }

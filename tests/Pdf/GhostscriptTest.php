@@ -12,12 +12,15 @@ class GhostscriptTest extends TestCase
     /** @test */
     public function it_returns_a_string_of_regenerates_pdf_content()
     {
-        $regeneratedPdf = (new Ghostscript)->regeneratePdf(
+        $binary = (PHP_OS === 'Darwin') ? 'gs' : 'ghostscript';
+
+        $regeneratedPdf = (new Ghostscript($binary))->regeneratePdf(
             file_get_contents(__DIR__ . '/dummy.pdf')
         );
 
+        $this->assertNotEmpty($regeneratedPdf);
+
         $this->assertTrue(Str::contains($regeneratedPdf, 'PDF-1.'));
-        $this->assertTrue(Str::contains($regeneratedPdf, 'youtube.com'));
         $this->assertTrue(Str::contains($regeneratedPdf, 'Producer(GPL Ghostscript'));
     }
 }

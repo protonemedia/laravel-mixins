@@ -14,7 +14,7 @@ class HumanFilesize
         /**
          * Formats the $value into a human readable filesize.
          */
-        return function ($value, $precision = 1) {
+        return function ($value, $precision = 1): string {
             if ($value >= 1000000000000) {
                 $value = round($value / (1024 * 1024 * 1024 * 1024), $precision);
                 $unit  = 'TB';

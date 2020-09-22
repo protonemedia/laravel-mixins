@@ -12,7 +12,16 @@ class IntlMoneyFormatter
 {
     use BladeDirectiveHelpers;
 
-    public static function handler(int $cents, string $code, string $locale)
+    /**
+     * Calls the format() method on the IntlMoneyFormatter with the given
+     * amount of cents, currency code and locale.
+     *
+     * @param integer $cents
+     * @param string $code
+     * @param string $locale
+     * @return string
+     */
+    public static function handler(int $cents, string $code, string $locale): string
     {
         $formatter = new BaseFormatter(
             new NumberFormatter($locale, NumberFormatter::CURRENCY),
@@ -24,6 +33,14 @@ class IntlMoneyFormatter
         return $formatter->format($money);
     }
 
+    /**
+     * Registers a handler for the money formatter.
+     *
+     * @param string $name
+     * @param string $code
+     * @param string $locale
+     * @return void
+     */
     public static function directive(string $name = 'money', string $code = 'EUR', string $locale = 'nl_NL')
     {
         Blade::directive($name, function ($expression) use ($code, $locale) {

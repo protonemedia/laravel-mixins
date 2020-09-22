@@ -1,6 +1,6 @@
 <?php
 
-namespace Protonemedia\Mixins\Tests\String;
+namespace ProtoneMedia\Mixins\Tests\String;
 
 use Illuminate\Support\Str;
 use Orchestra\Testbench\TestCase;

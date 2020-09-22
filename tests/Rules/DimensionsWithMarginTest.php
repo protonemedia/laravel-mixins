@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Rules;
+namespace ProtoneMedia\Mixins\Tests\Rules;
 
 use Illuminate\Http\Testing\FileFactory;
 use Orchestra\Testbench\TestCase;

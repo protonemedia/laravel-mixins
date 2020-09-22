@@ -4,8 +4,16 @@ namespace ProtoneMedia\LaravelMixins\String;
 
 class HumanFilesize
 {
-    public function humanFilesize()
+    /**
+     * Returns a function containing the macro.
+     *
+     * @return callable
+     */
+    public function humanFilesize(): callable
     {
+        /**
+         * Formats the $value into a human readable filesize.
+         */
         return function ($value, $precision = 1) {
             if ($value >= 1000000000000) {
                 $value = round($value / (1024 * 1024 * 1024 * 1024), $precision);

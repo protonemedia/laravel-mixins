@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Request;
+namespace ProtoneMedia\Mixins\Tests\Request;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Orchestra\Testbench\TestCase;

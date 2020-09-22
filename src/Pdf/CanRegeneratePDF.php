@@ -4,5 +4,11 @@ namespace ProtoneMedia\LaravelMixins\Pdf;
 
 interface CanRegeneratePDF
 {
-    public function regeneratePdf(string $pdfContent): string;
+    /**
+     * Opens the PDF contents, regenerates it, and then returns the new contents.
+     *
+     * @param string $pdfContents
+     * @return string
+     */
+    public function regeneratePdf(string $pdfContents): string;
 }

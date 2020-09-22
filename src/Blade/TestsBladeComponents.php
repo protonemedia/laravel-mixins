@@ -9,12 +9,25 @@ use Illuminate\Support\Facades\View;
 
 trait TestsBladeComponents
 {
+    /**
+     * Sets the view paths.
+     *
+     * @param array|string $path
+     * @return void
+     */
     protected function setViewPath($path)
     {
         Config::set('view.paths', Arr::wrap($path));
     }
 
-    protected function renderView(string $view, array $data = [])
+    /**
+     * Returns the evaluated view contents for the given view and data.
+     *
+     * @param string $view
+     * @param array $data
+     * @return string
+     */
+    protected function renderView(string $view, array $data = []): string
     {
         Artisan::call('view:clear');
 

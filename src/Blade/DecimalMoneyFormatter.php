@@ -11,7 +11,15 @@ class DecimalMoneyFormatter
 {
     use BladeDirectiveHelpers;
 
-    public static function handler(int $cents, string $code)
+    /**
+     * Calls the format() method on the DecimalMoneyFormatter with the given
+     * amount of ccents and currency code.
+     *
+     * @param integer $cents
+     * @param string $code
+     * @return string
+     */
+    public static function handler(int $cents, string $code): string
     {
         $formatter = new BaseFormatter(new ISOCurrencies);
 
@@ -20,6 +28,13 @@ class DecimalMoneyFormatter
         return $formatter->format($money);
     }
 
+    /**
+     * Registers a handler for the money formatter.
+     *
+     * @param string $name
+     * @param string $code
+     * @return void
+     */
     public static function directive(string $name = 'decimals', string $code = 'EUR')
     {
         Blade::directive($name, function ($expression) use ($code) {

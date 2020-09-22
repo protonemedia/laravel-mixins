@@ -1,6 +1,6 @@
 <?php
 
-namespace Protonemedia\Mixins\Tests\Blade;
+namespace ProtoneMedia\Mixins\Tests\Blade;
 
 use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelMixins\Blade\IntlMoneyFormatter;

@@ -13,12 +13,24 @@ class DimensionsWithMargin extends RulesDimensions implements Rule
         failsRatioCheck as failsRatioCheckTrait;
     }
 
+    /**
+     * Helper method to initialize the rule.
+     *
+     * @param array $constraints
+     * @return self
+     */
     public static function make(array $constraints = []): self
     {
         return new static($constraints);
     }
 
-    public function margin($margin)
+    /**
+     * Set the "margin" constraint.
+     *
+     * @param  int  $value
+     * @return $this
+     */
+    public function margin(int $margin)
     {
         if ($margin > 0) {
             $this->constraints['margin'] = $margin;
@@ -27,6 +39,13 @@ class DimensionsWithMargin extends RulesDimensions implements Rule
         return $this;
     }
 
+    /**
+     * Determine if the validation rule passes.
+     *
+     * @param  string  $attribute
+     * @param  mixed  $value
+     * @return bool
+     */
     public function passes($attribute, $value)
     {
         $parameters = Collection::make($this->constraints)->map(function ($value, $key) {
@@ -36,29 +55,33 @@ class DimensionsWithMargin extends RulesDimensions implements Rule
         return $this->validateDimensions($attribute, $value, $parameters);
     }
 
+    /**
+     * It checks for every margin if the underlying rule doesn't fails.
+     *
+     * @param  array  $parameters
+     * @param  int  $width
+     * @param  int  $height
+     * @return bool
+     */
     protected function failsRatioCheck($parameters, $width, $height)
     {
-        if (!isset($parameters['ratio'])) {
-            return false;
+        if (!isset($parameters['ratio']) || !isset($parameters['margin'])) {
+            return $this->failsRatioCheckTrait($parameters, $width, $height);
         }
 
-        if (isset($parameters['margin'])) {
-            $range = range($parameters['margin'] * -1, $parameters['margin']);
+        $range = range($parameters['margin'] * -1, $parameters['margin']);
 
-            foreach ($range as $margin) {
-                if (!$this->failsRatioCheckTrait($parameters, $width + $margin, $height)) {
-                    return false;
-                }
-
-                if (!$this->failsRatioCheckTrait($parameters, $width, $height + $margin)) {
-                    return false;
-                }
+        foreach ($range as $margin) {
+            if (!$this->failsRatioCheckTrait($parameters, $width + $margin, $height)) {
+                return false;
             }
 
-            return true;
+            if (!$this->failsRatioCheckTrait($parameters, $width, $height + $margin)) {
+                return false;
+            }
         }
 
-        return $this->failsRatioCheckTrait($parameters, $width, $height);
+        return true;
     }
 
     /**

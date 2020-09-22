@@ -11,13 +11,19 @@ class MaxWords implements Rule
     /**
      * Create a new rule instance.
      *
-     * @return void
+     * @param integer $max
      */
     public function __construct(int $max)
     {
         $this->max = $max;
     }
 
+    /**
+     * Helper method to initialize the rule.
+     *
+     * @param integer $max
+     * @return self
+     */
     public static function make(int $max): self
     {
         return new static($max);

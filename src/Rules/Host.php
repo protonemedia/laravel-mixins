@@ -8,11 +8,12 @@ use Illuminate\Support\Str;
 
 class Host implements Rule
 {
-    private $hosts;
+    private array $hosts;
+
     /**
      * Create a new rule instance.
      *
-     * @return void
+     * @param array|string $host
      */
     public function __construct($host)
     {

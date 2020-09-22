@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Accounting;
+namespace ProtoneMedia\Mixins\Tests\Pdf;
 
 use Illuminate\Support\Str;
 

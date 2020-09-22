@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Rules;
+namespace ProtoneMedia\Mixins\Tests\Rules;
 
 use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelMixins\Rules\MaxWords;

@@ -6,21 +6,32 @@ use Symfony\Component\Process\Process;
 
 class Ghostscript implements CanRegeneratePDF
 {
-    private $bin;
+    /**
+     * Ghostscript binary path.
+     */
+    private string $bin;
 
     public function __construct(string $bin = 'gs')
     {
         $this->bin = $bin;
     }
 
+    /**
+     * Generates a temporary filename for a PDF file.
+     *
+     * @return string
+     */
     private static function tempFile(): string
     {
         return tempnam(sys_get_temp_dir(), 'ghostscript') . '.pdf';
     }
 
-    public function regeneratePdf(string $pdfContent): string
+    /**
+     * {@inheritdoc}
+     */
+    public function regeneratePdf(string $pdfContents): string
     {
-        file_put_contents($input = static::tempFile(), $pdfContent);
+        file_put_contents($input = static::tempFile(), $pdfContents);
 
         (new Process([
             $this->bin,

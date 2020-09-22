@@ -13,9 +13,9 @@ addons:
 matrix:
   include:
     - php: 7.4
-      env: LARAVEL='6.*' TESTBENCH='4.*' COMPOSER_FLAGS='--prefer-lowest'
+      env: LARAVEL='6.*' TESTBENCH='^4.2' COMPOSER_FLAGS='--prefer-lowest'
     - php: 7.4
-      env: LARAVEL='6.*' TESTBENCH='4.*' COMPOSER_FLAGS='--prefer-stable'
+      env: LARAVEL='6.*' TESTBENCH='^4.2' COMPOSER_FLAGS='--prefer-stable'
     - php: 7.4
       env: LARAVEL='7.*' TESTBENCH='5.*' COMPOSER_FLAGS='--prefer-lowest'
     - php: 7.4

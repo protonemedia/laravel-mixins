@@ -301,6 +301,8 @@ $jpgFile = $request->file('jpg_image');
 $jpgFile->getClientOriginalName();
 ```
 
+Want to know more about this trait? Check out the [blog post](https://protone.media/blog/convert-and-store-base64-encoded-files-in-laravel-use-validation-rules-and-access-the-decoded-files-from-the-request-instance).
+
 ### Testing
 
 ``` bash

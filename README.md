@@ -266,7 +266,7 @@ $ghostscript = new Ghostscript('gs-binary');
 
 ## Convert Base64 input data to files
 
-Add the `ConvertsBase64ToFiles` trait and `base64ImageKeys` method to your form request.
+Add the `ConvertsBase64ToFiles` trait and `base64FileKeys` method to your form request.
 
 ```php
 use Illuminate\Foundation\Http\FormRequest;
@@ -276,7 +276,7 @@ class ImageRequest extends FormRequest
 {
     use ConvertsBase64ToFiles;
 
-    protected function base64ImageKeys(): array
+    protected function base64FileKeys(): array
     {
         return [
             'jpg_image' => 'Logo.jpg',

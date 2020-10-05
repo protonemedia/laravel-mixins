@@ -11,7 +11,7 @@ class ImageRequest extends FormRequest
 {
     use ConvertsBase64ToFiles;
 
-    protected function base64ImageKeys(): array
+    protected function base64FileKeys(): array
     {
         return [
             'png_image'  => 'Logo1.png',
@@ -32,7 +32,7 @@ class ZipRequest extends FormRequest
 {
     use ConvertsBase64ToFiles;
 
-    protected function base64ImageKeys(): array
+    protected function base64FileKeys(): array
     {
         return [
             'zip' => 'Logo.zip',

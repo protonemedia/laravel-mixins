@@ -8,12 +8,7 @@ use Illuminate\Support\Str;
 
 trait ConvertsBase64ToFiles
 {
-    /**
-     * Specify all input keys that should be converted.
-     *
-     * @return array
-     */
-    protected function base64ImageKeys(): array
+    protected function base64FileKeys(): array
     {
         return [];
     }
@@ -27,7 +22,7 @@ trait ConvertsBase64ToFiles
      */
     protected function prepareForValidation()
     {
-        Collection::make($this->base64ImageKeys())->each(function ($filename, $key) {
+        Collection::make($this->base64FileKeys())->each(function ($filename, $key) {
             rescue(function () use ($key, $filename) {
                 $base64Contents = $this->input($key);
 

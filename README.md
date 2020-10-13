@@ -29,6 +29,7 @@ There's no Service Provider or automatic discovery/registration of anything. All
 * [Current password](#current-password)
 * [Dimensions With Margin](#dimensions-with-margin)
 * [Host](#host)
+* [In Keys](#in-keys)
 * [Max Words](#max-words)
 * [URL Without Scheme](#url-without-scheme)
 
@@ -161,6 +162,22 @@ Verifies if the URL matches the given hosts.
 use ProtoneMedia\LaravelMixins\Rules\Host;
 
 $rule = Host::make(['facebook.com', 'fb.me']);
+```
+
+### In Keys
+
+Verifies if the given key or index exists in the array.
+
+```php
+use ProtoneMedia\LaravelMixins\Rules\InKeys;
+
+$rule = new InKeys(['laravel' => 'Laravel Framework', 'tailwindcss' => 'Tailwind CSS framework']);
+
+// same as
+
+use Illuminate\Validation\Rules\In;
+
+$rule = new In(['laravel', 'tailwindcss']);
 ```
 
 ### Max Words

@@ -26,7 +26,7 @@
         "moneyphp/money": "^3.3",
         "orchestra/testbench": "^4.2 || ^5.0 || ^6.0",
         "phpunit/phpunit": "^8.5 || ^9.0",
-        "spatie/laravel-sitemap": "^5.7",
+        "spatie/laravel-sitemap": "^5.7 || ^5.9",
         "symfony/process": "^4.3 || ^5.1"
     },
     "suggest": {

@@ -8,7 +8,9 @@
 
 ## Installation
 
-This package requires PHP 7.4 and Laravel 6.0 or higher. You can install the package via composer:
+Only the master branch and version 3.0 of this package are compatible with Laravel 8.0. If you're still using an older version of Laravel (or PHP < 7.4), please use the 2.x branch. Mind that older versions are no longer supported.
+
+You can install the package via composer:
 
 ```bash
 composer require protonemedia/laravel-mixins

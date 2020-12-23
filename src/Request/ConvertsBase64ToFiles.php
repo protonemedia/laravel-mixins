@@ -3,14 +3,37 @@
 namespace ProtoneMedia\LaravelMixins\Request;
 
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Symfony\Component\HttpFoundation\FileBag;
+use Symfony\Component\HttpFoundation\ParameterBag;
 
 trait ConvertsBase64ToFiles
 {
     protected function base64FileKeys(): array
     {
         return [];
+    }
+
+    /**
+     * Helper method to get the body parameters bag.
+     *
+     * @return \Symfony\Component\HttpFoundation\ParameterBag
+     */
+    private function bodyParametersBag(): ParameterBag
+    {
+        return $this->request;
+    }
+
+    /**
+     * Helper method to get the uploaded files bag.
+     *
+     * @return FileBag
+     */
+    private function uploadFilesBag(): FileBag
+    {
+        return $this->files;
     }
 
     /**
@@ -22,7 +45,9 @@ trait ConvertsBase64ToFiles
      */
     protected function prepareForValidation()
     {
-        Collection::make($this->base64FileKeys())->each(function ($filename, $key) {
+        $flattened = Arr::dot($this->base64FileKeys());
+
+        Collection::make($flattened)->each(function ($filename, $key) {
             rescue(function () use ($key, $filename) {
                 $base64Contents = $this->input($key);
 
@@ -48,8 +73,13 @@ trait ConvertsBase64ToFiles
 
                 $uploadedFile = new UploadedFile($tempFilePath, $filename, null, null, true);
 
-                $this->request->remove($key);
-                $this->files->set($key, $uploadedFile);
+                $body = $this->bodyParametersBag()->all();
+                Arr::forget($body, $key);
+                $this->bodyParametersBag()->replace($body);
+
+                $files = $this->uploadFilesBag()->all();
+                Arr::set($files, $key, $uploadedFile);
+                $this->uploadFilesBag()->replace($files);
             }, null, false);
         });
     }

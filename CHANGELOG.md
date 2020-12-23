@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-mixins` will be documented in this file.
 
+## 3.0.1 - 2020-12-23
+
+- Support for nested request data when using the `ConvertsBase64ToFiles` trait
+
+## 3.0.0 - 2020-11-27
+
+- Support for PHP 8.0
+- Drops support for Laravel 6.0 and 7.0
+
 ## 2.1.0 - 2020-10-13
 
 - Added `InKeys` rule.

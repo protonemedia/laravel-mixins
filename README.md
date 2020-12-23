@@ -324,6 +324,25 @@ $jpgFile = $request->file('jpg_image');
 $jpgFile->getClientOriginalName();
 ```
 
+This trait supports nested data as well. You can either reference the keys by a nested array, or with a [dotted notation](https://laravel.com/docs/master/helpers#method-array-dot):
+
+```php
+class ImageRequest extends FormRequest
+{
+    use ConvertsBase64ToFiles;
+
+    protected function base64FileKeys(): array
+    {
+        return [
+            'company.logo' => 'Logo.jpg',
+            'user' => [
+                'avatar' => 'Avatar.jpg',
+            ],
+        ];
+    }
+}
+```
+
 Want to know more about this trait? Check out the [blog post](https://protone.media/blog/convert-and-store-base64-encoded-files-in-laravel-use-validation-rules-and-access-the-decoded-files-from-the-request-instance).
 
 ### Testing

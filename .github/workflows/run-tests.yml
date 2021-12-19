@@ -28,6 +28,12 @@ jobs:
                   extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, mysql, mysqli, pdo_mysql
                   coverage: none
 
+            - name: Install Ghostscript
+              run: |
+                  sudo apt-get update
+                  sudo apt-get install -y ghostscript
+                  which ghostscript
+
             - name: Install dependencies
               run: |
                   composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update

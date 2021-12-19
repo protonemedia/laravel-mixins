@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-mixins` will be documented in this file.
 
+## 3.1.0 - 2021-12-19
+
+- Added supprt for PHP 8.1
+
 ## 3.0.1 - 2020-12-23
 
 - Support for nested request data when using the `ConvertsBase64ToFiles` trait

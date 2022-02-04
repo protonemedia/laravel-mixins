@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-mixins` will be documented in this file.
 
+## 3.2.0 - 2022-02-04
+
+- Added supprt for Laravel 9
+
 ## 3.1.0 - 2021-12-19
 
 - Added supprt for PHP 8.1

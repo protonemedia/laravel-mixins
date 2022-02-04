@@ -16,7 +16,7 @@ We proudly support the community by developing Laravel packages and giving them 
 
 ## Installation
 
-Only the master branch and version 3.0 of this package are compatible with Laravel 8.0. If you're still using an older version of Laravel (or PHP < 7.4), please use the 2.x branch. Mind that older versions are no longer supported.
+Only the master branch and version 3.0 of this package are compatible with Laravel 8.0 ad 9.0. If you're still using an older version of Laravel (or PHP < 7.4), please use the 2.x branch. Mind that older versions are no longer supported.
 
 You can install the package via composer:
 

@@ -48,6 +48,7 @@ There's no Service Provider or automatic discovery/registration of anything. All
 * [Human Filesize](#human-filesize)
 * [Text](#text)
 * [URL](#url)
+* [Seconds to time][#seconds-to-time]
 
 #### PDF
 * [PDF Regeneration](#pdf-regeneration)
@@ -269,6 +270,21 @@ $url = "protone.media";
 
 // https://protone.media
 Str::url($url);
+```
+
+### Seconds to time
+
+Converts seconds to a 'mm:ss' / 'hh:mm:ss' format.
+
+```php
+Str::mixin(new ProtoneMedia\LaravelMixins\String\SecondsToTime);
+
+Str::secondsToTime(10); // 00:10
+Str::secondsToTime(580); // 09:40
+Str::secondsToTime(3610); // 01:00:10
+
+// force 'hh:mm:ss' format, even under an hour:
+Str::secondsToTime(580, false); // 00:09:40
 ```
 
 ## PDF Regeneration

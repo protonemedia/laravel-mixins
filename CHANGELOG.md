@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-mixins` will be documented in this file.
 
+## 3.3.0 - 2022-02-22
+
+- Added `SecondsToTime` string macro.
+
 ## 3.2.0 - 2022-02-04
 
 - Added supprt for Laravel 9

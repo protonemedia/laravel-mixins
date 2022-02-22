@@ -48,7 +48,7 @@ There's no Service Provider or automatic discovery/registration of anything. All
 * [Human Filesize](#human-filesize)
 * [Text](#text)
 * [URL](#url)
-* [Seconds to time][#seconds-to-time]
+* [Seconds to time](#seconds-to-time)
 
 #### PDF
 * [PDF Regeneration](#pdf-regeneration)

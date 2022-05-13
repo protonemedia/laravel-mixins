@@ -25,6 +25,7 @@ class HumanFilesizeTest extends TestCase
         $this->assertEquals('44.6 KB', Str::humanFilesize(45678));
         $this->assertEquals('446.1 KB', Str::humanFilesize(456789));
         $this->assertEquals('3.3 MB', Str::humanFilesize(3456789));
+        $this->assertEquals('-3.3 MB', Str::humanFilesize(-3456789));
         $this->assertEquals('1.8 GB', Str::humanFilesize(1932735283.2));
         $this->assertEquals('112,283.3 TB', Str::humanFilesize(123456789123456789));
     }

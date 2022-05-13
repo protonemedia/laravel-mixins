@@ -15,6 +15,10 @@ class HumanFilesize
          * Formats the $value into a human readable filesize.
          */
         return function ($value, $precision = 1): string {
+            $isNegative = $value < 0;
+
+            $value = abs($value);
+
             if ($value >= 1000000000000) {
                 $value = round($value / (1024 * 1024 * 1024 * 1024), $precision);
                 $unit  = 'TB';
@@ -32,7 +36,7 @@ class HumanFilesize
                 return number_format($value) . ' ' . $unit;
             }
 
-            return number_format($value, $precision) . ' ' . $unit;
+            return ($isNegative ? '-' : '') . number_format($value, $precision) . ' ' . $unit;
         };
     }
 }

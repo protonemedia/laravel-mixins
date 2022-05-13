@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-mixins` will be documented in this file.
 
+## 3.3.1 - 2022-05-13
+
+- Bugfix for negative file sizes.
+
 ## 3.3.0 - 2022-02-22
 
 - Added `SecondsToTime` string macro.

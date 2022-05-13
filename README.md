@@ -155,6 +155,8 @@ Passes if the value matches the password of the authenticated user.
 $rule = new ProtoneMedia\LaravelMixins\Rules\CurrentPassword;
 ```
 
+As of Laravel 9, this validation rule is [built-in](https://laravel.com/docs/9.x/validation#rule-current-password).
+
 ### Dimensions With Margin
 
 Extension of the [Dimensions rule](https://laravel.com/docs/master/validation#rule-dimensions) with a `margin` option. Handy when you're working with ratios with repeating decimals.

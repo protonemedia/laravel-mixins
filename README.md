@@ -265,7 +265,7 @@ Str::text($html);
 
 ### URL
 
-Prepends `https://` is the scheme is missing from the given URL.
+Prepends `https://` if the scheme is missing from the given URL.
 
 ```php
 Str::mixin(new ProtoneMedia\LaravelMixins\String\Url);

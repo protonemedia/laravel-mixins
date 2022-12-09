@@ -6,7 +6,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/protonemedia/laravel-mixins.svg?style=flat-square)](https://packagist.org/packages/protonemedia/laravel-mixins)
 [![Buy us a tree](https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen)](https://plant.treeware.earth/protonemedia/laravel-mixins)
 
-## Support this package!
+## Sponsor this package!
 
 ❤️ We proudly support the community by developing Laravel packages and giving them away for free. If this package saves you time or if you're relying on it professionally, please consider [sponsoring the maintenance and development](https://github.com/sponsors/pascalbaljet). Keeping track of issues and pull requests takes time, but we're happy to help!
 
@@ -16,9 +16,12 @@
 
 It's the *magic* of Inertia.js with the *simplicity* of Blade. [Splade](https://github.com/protonemedia/laravel-splade) provides a super easy way to build Single Page Applications using Blade templates. Besides that magic SPA-feeling, it comes with more than ten components to sparkle your app and make it interactive, all without ever leaving Blade.
 
-## Installation
+## Requirements
 
-Only the master branch and version 3.0 of this package are compatible with Laravel 8.0 ad 9.0. If you're still using an older version of Laravel (or PHP < 7.4), please use the 2.x branch. Mind that older versions are no longer supported.
+* PHP 8.0+
+* Laravel 9.0
+
+## Installation
 
 You can install the package via composer:
 

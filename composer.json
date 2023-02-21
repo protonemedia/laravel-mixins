@@ -22,7 +22,7 @@
     "require-dev": {
         "html2text/html2text": "^4.3",
         "jeremykendall/php-domain-parser": "^6.0",
-        "laravel/ui": "^3.0",
+        "laravel/ui": "^3.0|^4.0",
         "mockery/mockery": "^1.4.4",
         "moneyphp/money": "^3.3",
         "nesbot/carbon": "^2.66",

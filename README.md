@@ -13,7 +13,7 @@
 ## Requirements
 
 * PHP 8.2+
-* Laravel 10.0
+* Laravel 11.0
 
 ## Installation
 
@@ -154,7 +154,7 @@ Passes if the value matches the password of the authenticated user.
 $rule = new ProtoneMedia\LaravelMixins\Rules\CurrentPassword;
 ```
 
-As of Laravel 9, this validation rule is [built-in](https://laravel.com/docs/9.x/validation#rule-current-password).
+As of Laravel 9, this validation rule is [built-in](https://laravel.com/docs/11.x/validation#rule-current-password).
 
 ### Dimensions With Margin
 

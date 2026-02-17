@@ -13,17 +13,15 @@ class GenerateSitemapTest extends TestCase
     /** @test */
     public function it_stores_the_sitemap_at_the_public_path()
     {
-        $generator = Mockery::mock(SitemapGenerator::class);
+        $generator = Mockery::spy(SitemapGenerator::class);
 
-        $generator->shouldReceive('setUrl')
-            ->with('http://localhost')
-            ->andReturnSelf();
-
-        $generator->shouldReceive('writeToFile')
-            ->with(public_path('sitemap.xml'))
-            ->andReturnSelf();
+        $generator->allows('setUrl')->andReturnSelf();
+        $generator->allows('writeToFile')->andReturnSelf();
 
         (new GenerateSitemap)->handle($generator);
+
+        $generator->shouldHaveReceived('setUrl')->with('http://localhost')->once();
+        $generator->shouldHaveReceived('writeToFile')->with(public_path('sitemap.xml'))->once();
     }
 
     /** @test */

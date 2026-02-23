@@ -1,7 +1,7 @@
 <?php
 
 namespace ProtoneMedia\Mixins\Tests\Pdf;
-
+use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Support\Str;
 
 use Orchestra\Testbench\TestCase;
@@ -9,6 +9,7 @@ use ProtoneMedia\LaravelMixins\Pdf\Ghostscript;
 
 class GhostscriptTest extends TestCase
 {
+    #[Test]
     /** @test */
     public function it_returns_a_string_of_regenerates_pdf_content()
     {

@@ -1,12 +1,13 @@
 <?php
 
 namespace ProtoneMedia\Mixins\Tests\Rules;
-
+use PHPUnit\Framework\Attributes\Test;
 use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelMixins\Rules\MaxWords;
 
 class MaxWordsTest extends TestCase
 {
+    #[Test]
     /** @test */
     public function it_counts_the_words()
     {

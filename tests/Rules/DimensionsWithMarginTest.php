@@ -1,13 +1,14 @@
 <?php
 
 namespace ProtoneMedia\Mixins\Tests\Rules;
-
+use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Http\Testing\FileFactory;
 use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelMixins\Rules\DimensionsWithMargin;
 
 class DimensionsWithMarginTest extends TestCase
 {
+    #[Test]
     /** @test */
     public function it_has_a_method_to_set_the_margin()
     {

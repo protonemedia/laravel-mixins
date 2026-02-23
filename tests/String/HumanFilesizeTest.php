@@ -1,7 +1,7 @@
 <?php
 
 namespace ProtoneMedia\Mixins\Tests\String;
-
+use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Support\Str;
 use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelMixins\String\HumanFilesize;
@@ -15,6 +15,7 @@ class HumanFilesizeTest extends TestCase
         Str::mixin(new HumanFilesize);
     }
 
+    #[Test]
     /** @test */
     public function it_can_format_file_size()
     {

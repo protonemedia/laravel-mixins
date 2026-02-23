@@ -1,7 +1,7 @@
 <?php
 
 namespace ProtoneMedia\Mixins\Tests\String;
-
+use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Support\Str;
 use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelMixins\String\SecondsToTime;
@@ -15,6 +15,7 @@ class SecondsToTimeTest extends TestCase
         Str::mixin(new SecondsToTime);
     }
 
+    #[Test]
     /** @test */
     public function it_can_format_seconds_as_time()
     {

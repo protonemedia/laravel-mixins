@@ -1,12 +1,13 @@
 <?php
 
 namespace ProtoneMedia\Mixins\Tests\Rules;
-
+use PHPUnit\Framework\Attributes\Test;
 use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelMixins\Rules\Host;
 
 class HostTest extends TestCase
 {
+    #[Test]
     /** @test */
     public function it_validates_the_host()
     {

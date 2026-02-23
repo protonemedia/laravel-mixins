@@ -1,7 +1,7 @@
 <?php
 
 namespace ProtoneMedia\Mixins\Tests\Blade;
-
+use PHPUnit\Framework\Attributes\Test;
 use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelMixins\Blade\IntlMoneyFormatter;
 use ProtoneMedia\LaravelMixins\Blade\TestsBladeComponents;
@@ -24,6 +24,7 @@ class IntlFormatterTest extends TestCase
         return str_replace("\u{00A0}", " ", $value);
     }
 
+    #[Test]
     /** @test */
     public function it_has_a_blade_directive_to_format_money()
     {

@@ -1,7 +1,7 @@
 <?php
 
 namespace ProtoneMedia\Mixins\Tests\Blade;
-
+use PHPUnit\Framework\Attributes\Test;
 use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelMixins\Blade\DecimalMoneyFormatter;
 use ProtoneMedia\LaravelMixins\Blade\TestsBladeComponents;
@@ -19,6 +19,7 @@ class DecimalMoneyFormatterTest extends TestCase
         DecimalMoneyFormatter::directive();
     }
 
+    #[Test]
     /** @test */
     public function it_can_format_cents_in_decimals()
     {

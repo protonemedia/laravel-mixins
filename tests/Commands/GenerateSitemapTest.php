@@ -1,7 +1,7 @@
 <?php
 
 namespace Protonemedia\Mixins\Tests\Commands;
-
+use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Support\Facades\Artisan;
 use Mockery;
 use Orchestra\Testbench\TestCase;
@@ -10,6 +10,7 @@ use Spatie\Sitemap\SitemapGenerator;
 
 class GenerateSitemapTest extends TestCase
 {
+    #[Test]
     /** @test */
     public function it_stores_the_sitemap_at_the_public_path()
     {
@@ -24,6 +25,7 @@ class GenerateSitemapTest extends TestCase
         $generator->shouldHaveReceived('writeToFile')->with(public_path('sitemap.xml'))->once();
     }
 
+    #[Test]
     /** @test */
     public function it_can_be_added_to_the_console()
     {

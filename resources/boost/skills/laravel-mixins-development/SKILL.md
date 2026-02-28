@@ -1,6 +1,6 @@
 ---
 name: laravel-mixins-development
-description: Development guidance for protonemedia/laravel-mixins. Provides reusable mixins and helpers for Laravel.
+description: Development guidance for protonemedia/laravel-mixins (opt-in helpers: directives, macros, rules, etc.).
 license: MIT
 metadata:
   author: ProtoneMedia
@@ -9,18 +9,12 @@ metadata:
 
 # Laravel Mixins Development
 
-## Overview
-Use this skill when changing package code, docs, tests, or release tooling for protonemedia/laravel-mixins.
-
-## When to Activate
-- You are modifying code in this repository.
-- You are reviewing/triaging issues or PRs for this package.
-- You are preparing a release (version bump, tag, changelog).
+Use this skill when changing code/docs/tests in `protonemedia/laravel-mixins`.
 
 ## Workflow
-1. Skim the README / docs to confirm the public contract.
-2. Read references/laravel-mixins-guide.md for common patterns and pitfalls.
-3. Keep changes small, add/update tests when behavior changes, and avoid breaking API changes.
+1. Treat the README “Contents” list as the public API surface.
+2. Consult `references/laravel-mixins-guide.md` for registration patterns and required optional dependencies.
+3. Keep everything opt-in (no implicit global registrations).
 
-## References
+## Reference
 - references/laravel-mixins-guide.md

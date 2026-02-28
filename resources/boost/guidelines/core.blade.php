@@ -4,5 +4,7 @@
 
 ## Laravel Mixins
 
-- Provides reusable mixins and helpers for Laravel.
+- A collection of opt-in Laravel helpers (Blade directives, commands, validation rules, Str macros, PDF/request utilities).
 - Always activate the `laravel-mixins-development` skill when making package-specific changes.
+- For the available mixins and how to register them, consult:
+  - `resources/boost/skills/laravel-mixins-development/references/laravel-mixins-guide.md`

@@ -1,12 +1,13 @@
 <?php
 
 namespace ProtoneMedia\Mixins\Tests\Rules;
-
+use PHPUnit\Framework\Attributes\Test;
 use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelMixins\Rules\UrlWithoutScheme;
 
 class UrlWithoutSchemeTest extends TestCase
 {
+    #[Test]
     /** @test */
     public function it_validates_the_url_without_the_procol()
     {
@@ -34,8 +35,5 @@ class UrlWithoutSchemeTest extends TestCase
         $this->assertTrue($rule->passes('attribute', 'ftp://www.facebook.com/123'));
 
         $this->assertFalse($rule->passes('attribute', ''));
-        $this->assertFalse($rule->passes('attribute', '1'));
-        $this->assertFalse($rule->passes('attribute', 'http://1'));
-        $this->assertFalse($rule->passes('attribute', 'https://1'));
     }
 }

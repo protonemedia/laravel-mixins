@@ -13,7 +13,7 @@
 ## Requirements
 
 * PHP 8.2+
-* Laravel 10.0
+* Laravel 11.0
 
 ## Installation
 
@@ -63,7 +63,7 @@ You can register Blade Directives by calling the `directive` method on the class
 
 *Note: This directive requires the `moneyphp/money` package.*
 
-Register the directive, for example by adding it to your `AppSerivceProvider`:
+Register the directive, for example by adding it to your `AppServiceProvider`:
 
 ```php
 ProtoneMedia\LaravelMixins\Blade\DecimalMoneyFormatter::directive();
@@ -92,7 +92,7 @@ The first argument of the directive is the amount in cents. The second optional 
 
 *Note: This directive requires the `moneyphp/money` package.*
 
-Register the directive, for example by adding it to your `AppSerivceProvider`:
+Register the directive, for example by adding it to your `AppServiceProvider`:
 
 ```php
 ProtoneMedia\LaravelMixins\Blade\IntlMoneyFormatter::directive();
@@ -138,7 +138,7 @@ You can also set a custom signature:
 ProtoneMedia\LaravelMixins\Commands\GenerateSitemap::register('generate-sitemap');
 ```
 
-It generates a sitemap of your entire site and stores in in the `public` folder as `sitemap.xml`.
+It generates a sitemap of your entire site and stores it in the `public` folder as `sitemap.xml`.
 
 ```bash
 php artisan sitemap:generate
@@ -154,7 +154,7 @@ Passes if the value matches the password of the authenticated user.
 $rule = new ProtoneMedia\LaravelMixins\Rules\CurrentPassword;
 ```
 
-As of Laravel 9, this validation rule is [built-in](https://laravel.com/docs/9.x/validation#rule-current-password).
+As of Laravel 9, this validation rule is [built-in](https://laravel.com/docs/11.x/validation#rule-current-password).
 
 ### Dimensions With Margin
 
@@ -194,7 +194,7 @@ $rule = new In(['laravel', 'tailwindcss']);
 
 ### Max Words
 
-Passes if the values contains no more words than specified.
+Passes if the value contains no more words than specified.
 
 ```php
 use ProtoneMedia\LaravelMixins\Rules\MaxWords;
@@ -212,7 +212,7 @@ $rule = new ProtoneMedia\LaravelMixins\Rules\UrlWithoutScheme;
 
 ## String macros
 
-You can add new method by using the mixins.
+You can add new methods by using the mixins.
 
 ### Compact
 
@@ -225,7 +225,7 @@ $string = "Hoe simpeler hoe beter. Want hoe minder keuze je een speler laat, hoe
 echo Str::compact($string);
 ```
 
-It has an optional second argument to specify the length on each side. With the optional third argument, you can specify the sepeator.
+It has an optional second argument to specify the length on each side. With the optional third argument, you can specify the separator.
 
 ```php
 // Hoe simpeler hoe - het juiste doet.
@@ -374,7 +374,7 @@ composer test
 
 ### Changelog
 
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
 ## Contributing
 
@@ -382,6 +382,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Other Laravel packages
 
+- [Inertia Modal](https://inertiaui.com/inertia-modal/docs/introduction): With Inertia Modal, you can easily open any route in a Modal or Slideover without having to change anything about your existing routes or controllers.
 * [`Inertia Table`](https://inertiaui.com/inertia-table?utm_source=github&utm_campaign=laravel-mixins): The Ultimate Table for Inertia.js with built-in Query Builder.
 * [`Laravel Blade On Demand`](https://github.com/protonemedia/laravel-blade-on-demand): Laravel package to compile Blade templates in memory.
 * [`Laravel Cross Eloquent Search`](https://github.com/protonemedia/laravel-cross-eloquent-search): Laravel package to search through multiple Eloquent models.
@@ -409,3 +410,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 ## Treeware
 
 This package is [Treeware](https://treeware.earth). If you use it in production, then we ask that you [**buy the world a tree**](https://plant.treeware.earth/protonemedia/laravel-mixins) to thank us for our work. By contributing to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
+

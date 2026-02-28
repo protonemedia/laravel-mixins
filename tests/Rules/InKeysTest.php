@@ -1,13 +1,14 @@
 <?php
 
 namespace ProtoneMedia\Mixins\Tests\Rules;
-
+use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Support\Facades\Validator;
 use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelMixins\Rules\InKeys;
 
 class InKeysTest extends TestCase
 {
+    #[Test]
     /** @test */
     public function it_validates_the_keys()
     {

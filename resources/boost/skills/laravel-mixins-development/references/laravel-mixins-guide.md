@@ -286,9 +286,3 @@ protected function base64FileKeys(): array
 - **Optional dependencies:** several features require extra packages (`moneyphp/money`, `spatie/laravel-sitemap`, `html2text/html2text`, `symfony/process`). Don’t assume they exist.
 - **Registration is explicit:** forgetting to call `::directive()` or `Str::mixin()` is the #1 cause of “method not found / directive not defined”.
 - **Keep things opt-in:** avoid changes that globally register behavior automatically.
-
-## Testing
-
-```bash
-composer test
-```

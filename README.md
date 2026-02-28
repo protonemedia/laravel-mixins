@@ -409,3 +409,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 ## Treeware
 
 This package is [Treeware](https://treeware.earth). If you use it in production, then we ask that you [**buy the world a tree**](https://plant.treeware.earth/protonemedia/laravel-mixins) to thank us for our work. By contributing to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
+
+## Related
+
+- [Inertia Modal](https://inertiaui.com/inertia-modal/docs/introduction): With Inertia Modal, you can easily open any route in a modal or slideover without having to change anything about your existing routes or controllers.

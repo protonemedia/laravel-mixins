@@ -4,7 +4,5 @@
 
 ## Laravel Mixins
 
-- This project uses **Laravel Mixins** (ProtoneMedia) in a Laravel application.
-- Activate the **`laravel-mixins-development`** skill when you are **integrating, configuring, or using** this package in app code (controllers, jobs, tests, config, routes, Blade, etc.).
-- Use the reference doc for the package’s public API and common recipes:
-  - `resources/boost/skills/laravel-mixins-development/references/laravel-mixins-guide.md`
+- `protonemedia/laravel-mixins.` helps you work with Laravel Mixins in Laravel.
+- Always activate the `laravel-mixins-development` skill when working with Laravel Mixins configuration, integration, or any code that relies on this package.

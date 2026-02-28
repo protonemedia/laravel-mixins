@@ -411,5 +411,3 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 This package is [Treeware](https://treeware.earth). If you use it in production, then we ask that you [**buy the world a tree**](https://plant.treeware.earth/protonemedia/laravel-mixins) to thank us for our work. By contributing to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
 
-## Related
-

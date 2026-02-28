@@ -1,7 +1,7 @@
 <?php
 
 namespace ProtoneMedia\Mixins\Tests\String;
-use PHPUnit\Framework\Attributes\Test;
+
 use Illuminate\Support\Str;
 use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelMixins\String\Url;
@@ -15,7 +15,6 @@ class UrlTest extends TestCase
         Str::mixin(new Url);
     }
 
-    #[Test]
     /** @test */
     public function it_prepends_to_protocol()
     {

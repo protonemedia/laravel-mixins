@@ -1,7 +1,7 @@
 <?php
 
 namespace ProtoneMedia\Mixins\Tests\Rules;
-use PHPUnit\Framework\Attributes\Test;
+
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
@@ -10,7 +10,6 @@ use ProtoneMedia\LaravelMixins\Rules\CurrentPassword;
 
 class CurrentPasswordTest extends TestCase
 {
-    #[Test]
     /** @test */
     public function it_verifies_the_current_password_the_authenticated_user()
     {
@@ -34,7 +33,6 @@ class CurrentPasswordTest extends TestCase
         $this->assertTrue($rule->passes('current_password', 'secret'));
     }
 
-    #[Test]
     /** @test */
     public function it_throttles_the_attempts()
     {

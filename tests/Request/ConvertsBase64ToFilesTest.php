@@ -1,7 +1,7 @@
 <?php
 
 namespace ProtoneMedia\Mixins\Tests\Request;
-use PHPUnit\Framework\Attributes\Test;
+
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Routing\Redirector;
 use Orchestra\Testbench\TestCase;
@@ -81,7 +81,6 @@ class ConvertsBase64ToFilesTest extends TestCase
         $request->validateResolved();
     }
 
-    #[Test]
     /** @test */
     public function it_converts_the_base64_images_to_illuminate_file_uploads()
     {
@@ -113,7 +112,6 @@ class ConvertsBase64ToFilesTest extends TestCase
         $this->assertEquals('width="300" height="300"', $jpegSize[3]);
     }
 
-    #[Test]
     /** @test */
     public function it_handles_nested_files()
     {
@@ -149,7 +147,6 @@ class ConvertsBase64ToFilesTest extends TestCase
         $this->assertEquals('width="300" height="300"', $jpegSize[3]);
     }
 
-    #[Test]
     /** @test */
     public function it_converts_a_base64_zip_to_an_illuminate_file_upload()
     {

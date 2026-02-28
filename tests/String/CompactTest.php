@@ -1,7 +1,7 @@
 <?php
 
 namespace ProtoneMedia\Mixins\Tests\String;
-use PHPUnit\Framework\Attributes\Test;
+
 use Illuminate\Support\Str;
 use Orchestra\Testbench\TestCase;
 use ProtoneMedia\LaravelMixins\String\Compact;
@@ -15,7 +15,6 @@ class CompactTest extends TestCase
         Str::mixin(new Compact);
     }
 
-    #[Test]
     /** @test */
     public function it_can_compact_a_string()
     {

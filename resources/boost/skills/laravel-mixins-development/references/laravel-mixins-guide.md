@@ -1,19 +1,15 @@
-# laravel-mixins development guide
+# Laravel Mixins Reference
 
-For full documentation, see the README: https://github.com/protonemedia/laravel-mixins#readme
+Complete reference for `protonemedia/laravel-mixins`. Full documentation: https://github.com/protonemedia/laravel-mixins#readme
 
-## At a glance
-Collection of opt-in Laravel **mixins/macros** (Blade directives, validation rules, string macros, commands, etc.).
+## Start Here
+- README / docs: https://github.com/protonemedia/laravel-mixins#readme
 
-## Local setup
-- Install dependencies: `composer install`
-- Keep the dev loop package-focused (avoid adding app-only scaffolding).
+## Notes for AI Assistants
+- Treat the README as the source of truth for the supported public API.
+- Keep changes backward-compatible unless the change is explicitly a breaking change.
 
 ## Testing
-- Run: `composer test` (preferred) or the repository’s configured test runner.
-- Add regression tests for bug fixes.
+- Run the repository test command (see README / composer scripts).
 
-## Notes & conventions
-- Everything is opt-in: don't introduce side effects via auto-registration.
-- Keep macro/directive names and signatures stable.
-- Document new mixins in the README and cover with tests.
+For detailed usage examples and the full API surface, refer to the README.

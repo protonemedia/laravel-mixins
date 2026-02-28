@@ -1,10 +1,6 @@
 # Laravel Mixins Reference
 
-Complete reference for `protonemedia/laravel-mixins.`. Full documentation: https://github.com/protonemedia/laravel-mixins#readme
-
-Complete reference for `protonemedia/laravel-mixins`.
-
-Primary docs: https://github.com/protonemedia/laravel-mixins#readme
+Complete reference for `protonemedia/laravel-mixins`. Full documentation: https://github.com/protonemedia/laravel-mixins#readme
 
 ## Philosophy
 

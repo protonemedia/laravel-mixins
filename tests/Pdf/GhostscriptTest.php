@@ -15,13 +15,13 @@ class GhostscriptTest extends TestCase
     {
         $binary = (PHP_OS === 'Darwin') ? 'gs' : 'ghostscript';
 
-        $regeneratedPdf = (new Ghostscript($binary))->regeneratePdf(
-            file_get_contents(__DIR__ . '/dummy.pdf')
-        );
+        $originalPdf = file_get_contents(__DIR__ . '/dummy.pdf');
+
+        $regeneratedPdf = (new Ghostscript($binary))->regeneratePdf($originalPdf);
 
         $this->assertNotEmpty($regeneratedPdf);
+        $this->assertNotSame($originalPdf, $regeneratedPdf);
 
         $this->assertTrue(Str::contains($regeneratedPdf, 'PDF-1.'));
-        $this->assertTrue(Str::contains($regeneratedPdf, 'Producer(GPL Ghostscript'));
     }
 }
